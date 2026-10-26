@@ -7,17 +7,17 @@ const sections=[
 ['La memoria de los aromas','Los olores pueden evocar recuerdos con mucha fuerza, porque el olfato está estrechamente conectado con regiones cerebrales relacionadas con las emociones y la memoria.','¿Qué aroma te recuerda a casa?'],
 ['El bosque se comunica','Algunos hongos forman redes bajo tierra que conectan las raíces de distintas plantas y permiten intercambiar nutrientes y señales químicas.','La naturaleza está llena de conexiones invisibles.']]},
 {id:'amor',icon:'♡',name:'Algo bonito',description:'Amor, amistad y emociones',label:'Palabras bonitas',entries:[
-['Hay personas…','Hay personas que no necesitan hacer ruido para cambiarte el día. Les basta aparecer.','Para compartir con alguien especial.'],
-['Un lugar al que volver','A veces, hogar no es una dirección. Es la tranquilidad que sentimos cuando alguien nos escucha de verdad.',''],
+['Para ti, HeyHey','Si pudiera regalarte una certeza, sería esta: no tienes que ser perfecta para ser profundamente amada.','Con mucho amor de Noel HM.'],
+['Mi lugar favorito','Entre tantas cosas bonitas del mundo, una de mis favoritas es coincidir contigo.','De Noel para HeyHey.'],
 ['De las cosas sencillas','Ojalá nunca nos falten las charlas largas, los abrazos sin motivo y las personas con quienes podemos ser nosotros mismos.',''],
 ['Si pudiera pedir algo','Pediría que siempre encuentres a alguien que celebre tus alegrías pequeñas como si fueran enormes.',''],
 ['Lo bonito de coincidir','Entre tantas historias posibles, qué suerte coincidir con personas que nos hacen sentir en paz.','']]},
 {id:'inspiracion',icon:'☼',name:'Inspírame',description:'Frases que dejan huella',label:'Motivación',entries:[
 ['A tu propio ritmo','No todos los días tienen que ser extraordinarios. Algunos son valiosos simplemente porque seguiste adelante.',''],
-['Pequeños comienzos','No subestimes lo que puede cambiar una decisión pequeña tomada con cariño hacia ti.',''],
+['Crecer con paciencia','No necesitas transformarte de golpe. Aprende algo, cuídate un poco, equivócate sin castigarte y celebra cada pequeño avance.','Tu progreso es tuyo.'],
 ['Una cosa a la vez','No necesitas resolver toda tu vida esta tarde. Empieza por lo que tienes enfrente.',''],
 ['Volver a empezar','Cambiar de opinión, de rumbo o de sueño también es una forma de crecer.',''],
-['Más suave contigo','Háblate como le hablarías a alguien que quieres mucho. Tú también mereces esa paciencia.','']]},
+['Tu mejor compañía','Háblate como le hablarías a alguien que quieres mucho. Tú también mereces esa paciencia, especialmente en los días difíciles.','']]},
 {id:'calma',icon:'☕',name:'Desconéctame',description:'Una pausa para respirar',label:'Un momento de calma',entries:[
 ['Afloja un poquito','Separa la lengua del paladar, relaja los hombros y deja que tu respiración encuentre su propio ritmo.','Puedes probar la pausa guiada más abajo.'],
 ['No pasa nada','Si hoy solo puedes hacer una cosa a la vez, que sea una cosa a la vez.',''],

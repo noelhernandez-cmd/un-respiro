@@ -1,25 +1,19 @@
-# Un Respiro ☕
+# Para HeyHey <3 · Con mucho amor de Noel HM
 
-Sitio estático, accesible y adaptable para disfrutar una pausa mental: curiosidades, palabras bonitas, inspiración, calma, microhistorias y humor ligero.
+Una página personalizada, cálida y morada para regalarle a HeyHey pausas, palabras bonitas, curiosidades, inspiración, historias, humor y una respiración guiada.
 
-## Funcionalidades
-- Seis categorías con contenido rotativo y un botón de sorpresa.
-- Favoritos persistentes en `localStorage` (por navegador y dispositivo).
-- Lecturas breves, botón para copiar, ventana de favoritos.
-- Respiración guiada de 2 minutos, con opción de detener.
-- Diseño adaptable, controles de teclado y compatibilidad con movimiento reducido.
+## Ver en línea
 
-## Ejecutarlo
-Abre `index.html` en el navegador. No necesita instalar dependencias, servidor ni base de datos. Para que la función copiar opere de manera fiable, utiliza HTTPS o localhost.
+Cuando los archivos estén publicados con GitHub Pages: https://noelhernandez-cmd.github.io/un-respiro/
 
-## Publicarlo con GitHub Pages
-1. Crea un repositorio nuevo e independiente en GitHub (por ejemplo, `un-respiro`).
-2. Sube `index.html`, `styles.css`, `script.js` y `README.md` a la rama `main`.
-3. Ve a **Settings → Pages → Build and deployment**, elige **Deploy from a branch**, rama `main` y directorio `/ (root)`.
-4. Guarda y visita la URL de Pages que GitHub muestre cuando termine la publicación.
+## Publicar cambios
 
-## Privacidad
-Los favoritos se guardan localmente. No se crea cuenta ni se envían datos del usuario a un servidor. Las tipografías se cargan desde Google Fonts y pueden sustituirse por fuentes del sistema si se necesita prescindir de recursos externos.
+Sube `index.html`, `styles.css`, `script.js` y `README.md` a la raíz de `main` en el repositorio `noelhernandez-cmd/un-respiro`, reemplazando sus versiones anteriores. En **Settings → Pages** selecciona **Deploy from a branch**, **main**, **/(root)**. GitHub Pages reconstruirá el sitio.
 
-## Contenido
-Los textos originales están definidos en el arreglo `sections` dentro de `script.js`. Puedes agregar entradas con tres campos: título, cuerpo y nota opcional. Los datos científicos son divulgativos y deben revisarse antes de ampliar su uso editorial.
+## Vista previa local
+
+Abre `index.html` desde el navegador con los otros tres archivos en la misma carpeta. La mayor parte de la experiencia funciona sin servidor. Los favoritos se guardan únicamente en el navegador local.
+
+## Notas
+
+No hay rastreo, inicio de sesión ni recopilación de datos. Los favoritos no se sincronizan entre dispositivos. Los contenidos son una invitación a descansar y reflexionar, no instrucciones médicas o de terapia.
