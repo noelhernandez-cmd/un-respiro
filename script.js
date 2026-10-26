@@ -36,6 +36,41 @@ const sections=[
 ['Una gran decisión','Decidí organizar mis ideas. Hicieron una reunión sin mí y cambiaron el orden del día.',''],
 ['Ese pequeño triunfo','Si abriste el refrigerador y recordaste a qué ibas, hoy ya ganaste algo.','']]}
 ];
+
+const heyheySections=[
+{id:'valentia',icon:'☀',name:'Valiente como tú',description:'Una luz inspirada en Enredados',label:'Atrévete a descubrir',entries:[
+['Tu propio horizonte','En Enredados, Rapunzel descubre que el mundo es mucho más grande que la torre que conocía. Tú también puedes explorar nuevas posibilidades, a tu manera y cuando estés lista.','Un paso pequeño también es valentía.'],
+['Las luces del cielo','Las linternas flotantes de Enredados evocan una esperanza que se mantiene viva con los años. No tienes que saber exactamente adónde vas para seguir tus sueños.','Dato: las linternas son uno de los símbolos visuales más reconocibles de la película.'],
+['Dar el salto','Ser valiente no significa dejar de sentir miedo; a veces es pedir ayuda, intentarlo o decidir descansar para volver con más claridad.','No estás sola en el camino.'],
+['La fuerza del cabello','Tu cabello rojo me encanta, pero lo que más adoro es la persona tan especial que hay debajo de él.','Con amor, Noel HM ♡']]},
+{id:'origen',icon:'♫',name:'Nuestro HeyHey',description:'Un apodo que tiene historia',label:'Una historia nuestra',entries:[
+['¿Sabes de dónde salió HeyHey?','De una canción de Moana que quedó guardada en nuestra historia. Desde entonces, ese apodo se volvió mi manera favorita de nombrarte.','Las canciones pueden convertirse en recuerdos compartidos.'],
+['Distinta, y eso es hermoso','No necesitas encajar en un molde para ser extraordinaria. Hay algo precioso en tu forma única de mirar el mundo.','No estar en el montón puede ser tu fuerza.'],
+['Tu propia travesía','Moana nos recuerda que descubrir quién eres puede llevar tiempo. Puedes explorar, equivocarte y elegir tu rumbo sin perder tu esencia.','La canción es una referencia a nuestra historia; este mensaje está escrito especialmente para ti.']]},
+{id:'luna',icon:'✧',name:'Brilla y fluye',description:'Un guiño a Soy Luna y al baile',label:'Movimiento y confianza',entries:[
+['Tu propio ritmo','En Soy Luna, la música y el patinaje acompañan historias de amistad, identidad y cambios. Tu camino tampoco tiene que verse como el de nadie más.','Y sí: yo vi Soy Luna por ti ♡'],
+['Baila como te nazca','No tienes que dominar una coreografía para disfrutar una canción. Pon música, mueve los hombros y recuerda lo bonito que es ser tú.','Prueba el rincón de baile un poquito más abajo.'],
+['Si hoy tropiezas','Cada nuevo intento tiene algo de práctica. No tienes que convertir tus tropiezos en derrotas definitivas.','Puedes levantarte, pedir compañía o simplemente tomar una pausa.']]},
+{id:'sentir',icon:'❀',name:'Sentir y florecer',description:'Lecturas sensibles, con un guiño a Boulevard',label:'Emociones y esperanza',entries:[
+['Las historias también nos mueven','Boulevard puede invitar a pensar en vínculos intensos y emociones complejas. Aquí quiero recordarte que el amor bonito también respeta, cuida y da tranquilidad.','Sentir profundamente no significa que debas sufrir para merecer amor.'],
+['No todo dura para siempre','Hay días difíciles que cambian con el tiempo. Si hoy pesa algo, no necesitas encontrarle sentido inmediatamente. Puedes acompañarte de alguien y dar un paso a la vez.','No tienes que estar bien todo el tiempo.'],
+['Caer no te define','Los tropiezos no borran lo que ya lograste. Si alguna vez tienes que empezar de nuevo, lo harás con todo lo aprendido y con derecho a descansar.','Crecer no exige lastimarse.'],
+['Hay más posibilidades','Cuando un plan termina o cambia, a veces aparecen caminos que no habías visto. No hace falta apresurar el siguiente capítulo.','Poco a poco, HeyHey.']]},
+{id:'principito',icon:'✧',name:'Nuestro pequeño planeta',description:'La rosa, el zorro y las estrellas de El Principito',label:'Inspirado en El Principito',entries:[
+['Tu rosa, a tu manera','En El Principito, la rosa no es importante porque sea perfecta: lo es por el vínculo que se construye con ella. HeyHey, no tienes que ser impecable para que te quiera tanto.','Un recordatorio de Noel: tú ya eres especial para mí. ♡'],
+['El zorro y los lazos','El encuentro con el zorro habla de cómo los vínculos se crean con tiempo, cuidado y presencia. Lo bonito entre nosotros también se construye poquito a poquito.','Dato literario: el zorro es uno de los encuentros más recordados de la historia.'],
+['Una estrella para volver','Las estrellas del libro invitan a recordar a quienes queremos incluso cuando no están frente a nosotros. Cuando mires el cielo, ojalá sientas un abrazo mío.','Con mucho amor de Noel HM. ✧'],
+['Lo esencial de ti','Puedes tener días confusos y seguir siendo tú. Tu sensibilidad, tus sueños, tu risa y hasta esas pequeñas rarezas que adoro no se miden con resultados.','Tu valor no depende de cómo haya salido el día.'],
+['Pequeños pasos en un planeta enorme','El Principito recorre mundos distintos y aprende de cada encuentro. Tú tampoco tienes que comprender todo hoy: explorar, preguntar, descansar y volver a intentar también es vivir.','Un pequeño paso hoy puede ser suficiente.'],
+['El regalo de tu cabello rojo','Hay rosas, atardeceres y planetas enteros en los cuentos. Pero en mi historia hay algo igual de bonito: esa chica de cabello rojo a la que amo tanto.','Para ti, HeyHey. ♡']]},
+{id:'noel',icon:'♥',name:'Palabras de Noel',description:'Recordatorios escritos para ti',label:'De Noel para HeyHey',entries:[
+['Para mí, eres la mejor','No porque tengas que demostrar nada, sino porque admiro todo lo que eres. Me encanta poder conocerte cada día un poquito más.','Te amo. — Noel HM'],
+['Tu cabello rojo','Me fascina tu cabello rojo. Pero todavía más me gusta la manera en que sonríes, la forma en que sueñas y todo lo que te hace ser tú.','Con mucho amor ♡'],
+['Vamos poco a poco','No hay que resolverlo todo hoy. Estoy feliz de compartir contigo los días luminosos y también esos en los que necesitamos bajar el ritmo.','Un paso a la vez, HeyHey.'],
+['Te amo','Te amo en lo cotidiano: cuando nos reímos por cualquier cosa, cuando hablamos de tus series y cuando me cuentas lo que te ilusiona.','Siempre con cariño, Noel HM.'],
+['Estoy orgulloso de ti','Hay esfuerzos que quizá nadie nota, pero yo quiero que sepas que los tuyos importan. Y si hoy te cuesta, sigues mereciendo amor y ternura.','No necesitas ganarte mi cariño.']]}
+];
+sections.push(...heyheySections);
 const $=id=>document.getElementById(id);const all=sections.flatMap(s=>s.entries.map((e,i)=>({key:s.id+':'+i,section:s,...{title:e[0],text:e[1],extra:e[2]}})));
 const storeKey='un-respiro-favorites-v1';let favorites=[];try{const stored=JSON.parse(localStorage.getItem(storeKey)||'[]');favorites=Array.isArray(stored)?stored.filter(k=>all.some(x=>x.key===k)):[]}catch(e){favorites=[]}
 let active='all',current=null,toastTimeout,breathInterval=null,breathTimeout=null;
@@ -53,3 +88,20 @@ $('year').textContent=new Date().getFullYear();$('surpriseButton').addEventListe
 function stopBreathing(completed=false){clearInterval(breathInterval);clearTimeout(breathTimeout);breathInterval=null;breathTimeout=null;$('breathCircle').classList.remove('expand');$('breathLabel').textContent='inhala calma';$('breathSub').textContent='a tu propio ritmo';$('breathButton').hidden=false;$('stopBreathButton').hidden=true;$('breathStatus').textContent=completed?'Qué bien regalarte estos dos minutos ♡':'Cuando quieras, comenzamos.'}
 function startBreathing(){if(breathInterval)return;$('breathButton').hidden=true;$('stopBreathButton').hidden=false;const started=Date.now();function tick(){const elapsed=Date.now()-started;if(elapsed>=120000){stopBreathing(true);return}const part=elapsed%10000;const inhale=part<4000;const hold=part>=4000&&part<6000;$('breathCircle').classList.toggle('expand',inhale||hold);$('breathLabel').textContent=inhale?'inhala':hold?'sostén':'exhala';$('breathSub').textContent=inhale?'suavemente':hold?'sin esfuerzo':'con tranquilidad';$('breathStatus').textContent='Pausa guiada · '+Math.max(0,Math.ceil((120000-elapsed)/1000))+' s restantes'}tick();breathInterval=setInterval(tick,150);breathTimeout=setTimeout(()=>stopBreathing(true),120100)}
 $('breathButton').addEventListener('click',startBreathing);$('stopBreathButton').addEventListener('click',()=>stopBreathing(false));document.addEventListener('visibilitychange',()=>{if(document.hidden&&breathInterval)stopBreathing(false)});current=all[0];renderCard();saveFavorites();
+
+const danceIdeas=[
+'Pon una canción que te guste, y mueve los hombros mientras respiras suavemente. ♡',
+'Haz una mini coreografía inventada de 30 segundos. ¡Aquí nadie está calificando!',
+'Si estás sentada, prueba a marcar el ritmo con las manos. El baile también puede ser pequeñito.',
+'Elige una canción de Soy Luna y disfruta un ratito, a tu manera.',
+'Baila frente al espejo y regálate una sonrisa. Tu cabello rojo también merece girar contigo. ♡'];
+$('danceButton').addEventListener('click',()=>{$('danceMessage').textContent=danceIdeas[Math.floor(Math.random()*danceIdeas.length)]});
+const feedbackKey='para-heyhey-feedback-v1';
+function readFeedback(){const form=$('feedbackForm');return {mood:form.querySelector('[name="mood"]:checked')?.value||'No respondido',help:form.querySelector('[name="help"]:checked')?.value||'No respondido',note:$('feedbackNote').value.trim()}}
+function feedbackText(){const f=readFeedback();return `Para HeyHey — cómo me sentí\nÁnimo: ${f.mood}\n¿Me ayudó?: ${f.help}\nPara la próxima: ${f.note||'Sin comentario'}`}
+$('feedbackForm').addEventListener('submit',e=>{e.preventDefault();const f=readFeedback();try{localStorage.setItem(feedbackKey,JSON.stringify(f));$('feedbackStatus').textContent='Gracias por compartirlo, HeyHey ♡ Tu respuesta se guardó solo en este navegador.'}catch(err){$('feedbackStatus').textContent='No pudimos guardarlo en este navegador. Puedes usar “Copiar para compartir”.'}});
+$('copyFeedback').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(feedbackText());$('feedbackStatus').textContent='Respuesta copiada. Tú eliges si deseas compartirla ♡'}catch(err){$('feedbackStatus').textContent='No se pudo copiar automáticamente.'}});
+try{const saved=JSON.parse(localStorage.getItem(feedbackKey)||'null');if(saved){for(const name of ['mood','help']){const match=[...$('feedbackForm').querySelectorAll(`[name="${name}"]`)].find(i=>i.value===saved[name]);if(match)match.checked=true}$('feedbackNote').value=saved.note||''}}catch(err){}
+
+// Acceso directo al rincón de El Principito
+$('princeButton').addEventListener('click',()=>choose('principito'));
