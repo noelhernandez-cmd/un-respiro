@@ -1,6 +1,6 @@
 # Para HeyHey <3 — con mucho amor de Noel HM
 
-Un refugio interactivo en tonos morados: cultura general, mensajes de Noel, rincones inspirados en los gustos de HeyHey, pausas guiadas y baile.
+Un refugio interactivo en tonos morados: cultura general, mensajes de Noel, rincones inspirados en los gustos de HeyHey, pausas guiadas y mensajes de amor.
 
 ## Publicación (GitHub Pages)
 Sube `index.html`, `styles.css`, `script.js` y `README.md` a la **raíz** de `main`. En Settings > Pages elige `Deploy from a branch`, rama `main`, carpeta `/ (root)`.
@@ -16,3 +16,11 @@ Las referencias a Enredados, Moana, Soy Luna y Boulevard son comentarios origina
 
 ## Versión 4 — El Principito
 Incluye un planeta ilustrado con CSS, un rincón interactivo con seis tarjetas originales inspiradas en la rosa, el zorro y las estrellas, y acceso desde la portada del rincón. Sin fragmentos extensos del libro ni imágenes oficiales.
+
+
+## Versión 5
+Dedicatoria romántica para HeyHey con ilustración de cuento original; la invitación a bailar está pausada. Se eliminó la reflexión final anterior y se renovó el cierre.
+
+## Versión 6
+
+Cierre actualizado a «Un día a la vez, HeyHey.»; las actividades de baile quedan fuera de la experiencia por ahora.

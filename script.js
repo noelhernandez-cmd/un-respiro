@@ -47,9 +47,9 @@ const heyheySections=[
 ['¿Sabes de dónde salió HeyHey?','De una canción de Moana que quedó guardada en nuestra historia. Desde entonces, ese apodo se volvió mi manera favorita de nombrarte.','Las canciones pueden convertirse en recuerdos compartidos.'],
 ['Distinta, y eso es hermoso','No necesitas encajar en un molde para ser extraordinaria. Hay algo precioso en tu forma única de mirar el mundo.','No estar en el montón puede ser tu fuerza.'],
 ['Tu propia travesía','Moana nos recuerda que descubrir quién eres puede llevar tiempo. Puedes explorar, equivocarte y elegir tu rumbo sin perder tu esencia.','La canción es una referencia a nuestra historia; este mensaje está escrito especialmente para ti.']]},
-{id:'luna',icon:'✧',name:'Brilla y fluye',description:'Un guiño a Soy Luna y al baile',label:'Movimiento y confianza',entries:[
+{id:'luna',icon:'✧',name:'Brilla y fluye',description:'Un guiño a Soy Luna y a tu luz' ,label:'Movimiento y confianza',entries:[
 ['Tu propio ritmo','En Soy Luna, la música y el patinaje acompañan historias de amistad, identidad y cambios. Tu camino tampoco tiene que verse como el de nadie más.','Y sí: yo vi Soy Luna por ti ♡'],
-['Baila como te nazca','No tienes que dominar una coreografía para disfrutar una canción. Pon música, mueve los hombros y recuerda lo bonito que es ser tú.','Prueba el rincón de baile un poquito más abajo.'],
+['Tu brillo, a tu ritmo','No tienes que hacer nada especial hoy. Escucha esa canción que te gusta, recuerda cuánto brillas y descansa a tu ritmo.','Puedes volver a esta frase cada vez que lo necesites.'],
 ['Si hoy tropiezas','Cada nuevo intento tiene algo de práctica. No tienes que convertir tus tropiezos en derrotas definitivas.','Puedes levantarte, pedir compañía o simplemente tomar una pausa.']]},
 {id:'sentir',icon:'❀',name:'Sentir y florecer',description:'Lecturas sensibles, con un guiño a Boulevard',label:'Emociones y esperanza',entries:[
 ['Las historias también nos mueven','Boulevard puede invitar a pensar en vínculos intensos y emociones complejas. Aquí quiero recordarte que el amor bonito también respeta, cuida y da tranquilidad.','Sentir profundamente no significa que debas sufrir para merecer amor.'],
@@ -89,13 +89,7 @@ function stopBreathing(completed=false){clearInterval(breathInterval);clearTimeo
 function startBreathing(){if(breathInterval)return;$('breathButton').hidden=true;$('stopBreathButton').hidden=false;const started=Date.now();function tick(){const elapsed=Date.now()-started;if(elapsed>=120000){stopBreathing(true);return}const part=elapsed%10000;const inhale=part<4000;const hold=part>=4000&&part<6000;$('breathCircle').classList.toggle('expand',inhale||hold);$('breathLabel').textContent=inhale?'inhala':hold?'sostén':'exhala';$('breathSub').textContent=inhale?'suavemente':hold?'sin esfuerzo':'con tranquilidad';$('breathStatus').textContent='Pausa guiada · '+Math.max(0,Math.ceil((120000-elapsed)/1000))+' s restantes'}tick();breathInterval=setInterval(tick,150);breathTimeout=setTimeout(()=>stopBreathing(true),120100)}
 $('breathButton').addEventListener('click',startBreathing);$('stopBreathButton').addEventListener('click',()=>stopBreathing(false));document.addEventListener('visibilitychange',()=>{if(document.hidden&&breathInterval)stopBreathing(false)});current=all[0];renderCard();saveFavorites();
 
-const danceIdeas=[
-'Pon una canción que te guste, y mueve los hombros mientras respiras suavemente. ♡',
-'Haz una mini coreografía inventada de 30 segundos. ¡Aquí nadie está calificando!',
-'Si estás sentada, prueba a marcar el ritmo con las manos. El baile también puede ser pequeñito.',
-'Elige una canción de Soy Luna y disfruta un ratito, a tu manera.',
-'Baila frente al espejo y regálate una sonrisa. Tu cabello rojo también merece girar contigo. ♡'];
-$('danceButton').addEventListener('click',()=>{$('danceMessage').textContent=danceIdeas[Math.floor(Math.random()*danceIdeas.length)]});
+
 const feedbackKey='para-heyhey-feedback-v1';
 function readFeedback(){const form=$('feedbackForm');return {mood:form.querySelector('[name="mood"]:checked')?.value||'No respondido',help:form.querySelector('[name="help"]:checked')?.value||'No respondido',note:$('feedbackNote').value.trim()}}
 function feedbackText(){const f=readFeedback();return `Para HeyHey — cómo me sentí\nÁnimo: ${f.mood}\n¿Me ayudó?: ${f.help}\nPara la próxima: ${f.note||'Sin comentario'}`}
