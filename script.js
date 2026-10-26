@@ -44,14 +44,17 @@ const heyheySections=[
 ['Dar el salto','Ser valiente no significa dejar de sentir miedo; a veces es pedir ayuda, intentarlo o decidir descansar para volver con más claridad.','No estás sola en el camino.'],
 ['La fuerza del cabello','Tu cabello rojo me encanta, pero lo que más adoro es la persona tan especial que hay debajo de él.','Con amor, Noel HM ♡']]},
 {id:'origen',icon:'♫',name:'Nuestro HeyHey',description:'Un apodo que tiene historia',label:'Una historia nuestra',entries:[
-['¿Sabes de dónde salió HeyHey?','De una canción de Moana que quedó guardada en nuestra historia. Desde entonces, ese apodo se volvió mi manera favorita de nombrarte.','Las canciones pueden convertirse en recuerdos compartidos.'],
+['¿Sabes de dónde salió HeyHey? 🐓','De Hei Hei, el gallito despistado y adorable de Moana. Lo que empezó como una referencia divertida terminó siendo uno de mis apodos favoritos para ti.','A veces un personaje entra a nuestra historia y se queda para siempre en forma de apodo. 🐓'],
 ['Distinta, y eso es hermoso','No necesitas encajar en un molde para ser extraordinaria. Hay algo precioso en tu forma única de mirar el mundo.','No estar en el montón puede ser tu fuerza.'],
-['Tu propia travesía','Moana nos recuerda que descubrir quién eres puede llevar tiempo. Puedes explorar, equivocarte y elegir tu rumbo sin perder tu esencia.','La canción es una referencia a nuestra historia; este mensaje está escrito especialmente para ti.']]},
+['Tu propia travesía','Moana nos recuerda que descubrir quién eres puede llevar tiempo. Puedes explorar, equivocarte y elegir tu rumbo sin perder tu esencia.','Hei Hei es el gallito de Moana; nuestro apodo tiene vida propia. ♡']]},
 {id:'luna',icon:'✧',name:'Brilla y fluye',description:'Un guiño a Soy Luna y a tu luz' ,label:'Movimiento y confianza',entries:[
+['Mi Princesa, de Matteo','Te dediqué Princesa, la canción que Matteo canta en Soy Luna, porque al escucharla pensé en ti. En esta historia, mi princesa eres tú: con tu sonrisa preciosa, tu cabello rojo y todo lo que te hace tan especial.','Y sí: vi Soy Luna por ti, y ahora esta canción también es nuestra. ♡'],
 ['Tu propio ritmo','En Soy Luna, la música y el patinaje acompañan historias de amistad, identidad y cambios. Tu camino tampoco tiene que verse como el de nadie más.','Y sí: yo vi Soy Luna por ti ♡'],
 ['Tu brillo, a tu ritmo','No tienes que hacer nada especial hoy. Escucha esa canción que te gusta, recuerda cuánto brillas y descansa a tu ritmo.','Puedes volver a esta frase cada vez que lo necesites.'],
 ['Si hoy tropiezas','Cada nuevo intento tiene algo de práctica. No tienes que convertir tus tropiezos en derrotas definitivas.','Puedes levantarte, pedir compañía o simplemente tomar una pausa.']]},
 {id:'sentir',icon:'❀',name:'Sentir y florecer',description:'Lecturas sensibles, con un guiño a Boulevard',label:'Emociones y esperanza',entries:[
+['Tu libro favorito: Boulevard','Sé que Boulevard, de Flor M. Salvador, tiene un lugar especial en tu corazón. Me gustó escucharte hablar de Hasley, Luke y de ese mundo de páginas que tanto te emociona. Quiero seguir descubriendo las historias que amas, contigo.','Dato: Boulevard nació como una historia publicada en línea y después llegó a las librerías.'],
+['Nuestra canción entre páginas','En nuestras primeras conversaciones me contaste que The Reason de Hoobastank aparece relacionada con Boulevard. Me encanta que una historia pueda convertirse también en una canción que te acompaña.','Gracias por dejarme entrar poquito a poquito en tu universo de libros y música.'],
 ['Las historias también nos mueven','Boulevard puede invitar a pensar en vínculos intensos y emociones complejas. Aquí quiero recordarte que el amor bonito también respeta, cuida y da tranquilidad.','Sentir profundamente no significa que debas sufrir para merecer amor.'],
 ['No todo dura para siempre','Hay días difíciles que cambian con el tiempo. Si hoy pesa algo, no necesitas encontrarle sentido inmediatamente. Puedes acompañarte de alguien y dar un paso a la vez.','No tienes que estar bien todo el tiempo.'],
 ['Caer no te define','Los tropiezos no borran lo que ya lograste. Si alguna vez tienes que empezar de nuevo, lo harás con todo lo aprendido y con derecho a descansar.','Crecer no exige lastimarse.'],
@@ -94,8 +97,25 @@ const feedbackKey='para-heyhey-feedback-v1';
 function readFeedback(){const form=$('feedbackForm');return {mood:form.querySelector('[name="mood"]:checked')?.value||'No respondido',help:form.querySelector('[name="help"]:checked')?.value||'No respondido',note:$('feedbackNote').value.trim()}}
 function feedbackText(){const f=readFeedback();return `Para HeyHey — cómo me sentí\nÁnimo: ${f.mood}\n¿Me ayudó?: ${f.help}\nPara la próxima: ${f.note||'Sin comentario'}`}
 $('feedbackForm').addEventListener('submit',e=>{e.preventDefault();const f=readFeedback();try{localStorage.setItem(feedbackKey,JSON.stringify(f));$('feedbackStatus').textContent='Gracias por compartirlo, HeyHey ♡ Tu respuesta se guardó solo en este navegador.'}catch(err){$('feedbackStatus').textContent='No pudimos guardarlo en este navegador. Puedes usar “Copiar para compartir”.'}});
+$('sendFeedback').addEventListener('click',async()=>{
+ const endpoint=window.HEYHEY_FEEDBACK_ENDPOINT||'';
+ if(!endpoint){$('feedbackStatus').textContent='El buzón todavía no está conectado. Por ahora puedes copiar tu respuesta para compartirla con Noel ♡';return;}
+ if(!/^https:\/\/script\.google\.com\/macros\/s\//.test(endpoint)){$('feedbackStatus').textContent='No se configuró correctamente el buzón. Puedes usar “Copiar para compartir”.';return;}
+ const f=readFeedback();
+ if(!confirm('¿Quieres compartir estas respuestas con Noel? Él podrá leerlas en su hoja privada.'))return;
+ const button=$('sendFeedback');button.disabled=true;$('feedbackStatus').textContent='Enviando tu respuesta…';
+ try{
+  const body=new URLSearchParams({mood:f.mood,help:f.help,note:f.note,source:'heyhey-v7'});
+  await fetch(endpoint,{method:'POST',mode:'no-cors',body});
+  $('feedbackStatus').textContent='Tu respuesta se envió para procesarse ♡ Si quieres asegurarte de que Noel la reciba, usa también “Copiar para compartir”.';
+ }catch(err){$('feedbackStatus').textContent='No se pudo enviar esta vez. Puedes guardarla o copiarla para compartirla.'}
+ finally{button.disabled=false;}
+});
 $('copyFeedback').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(feedbackText());$('feedbackStatus').textContent='Respuesta copiada. Tú eliges si deseas compartirla ♡'}catch(err){$('feedbackStatus').textContent='No se pudo copiar automáticamente.'}});
 try{const saved=JSON.parse(localStorage.getItem(feedbackKey)||'null');if(saved){for(const name of ['mood','help']){const match=[...$('feedbackForm').querySelectorAll(`[name="${name}"]`)].find(i=>i.value===saved[name]);if(match)match.checked=true}$('feedbackNote').value=saved.note||''}}catch(err){}
 
 // Acceso directo al rincón de El Principito
 $('princeButton').addEventListener('click',()=>choose('principito'));
+
+// Atajos desde los homenajes especiales a las secciones interactivas.
+document.querySelectorAll('[data-world]').forEach(button=>button.addEventListener('click',()=>{const category=button.dataset.world;const match=document.querySelector(`[data-section="${category}"]`);if(match){match.click();document.getElementById('experience')?.scrollIntoView({behavior:'smooth'});}else{const item=sections.find(x=>x.id===category);if(item)choose(category);}}));
