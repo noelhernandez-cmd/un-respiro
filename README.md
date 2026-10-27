@@ -90,3 +90,12 @@ Se declaró la referencia a la ruleta y se inicializaron sus variables de giro (
 - En caso de no subir Simple Cakes, se utiliza una tipografía de respaldo elegante sin romper el diseño.
 - Se mantiene el contenido y la interacción de V14, incluida la ruleta emergente, y siguen desactivados el baile y las estadísticas.
 - Actualiza `index.html` y `styles.css` desde este paquete. Puedes subir todos los archivos del ZIP si prefieres reemplazar todo.
+
+
+## V16 — Portada y emociones de la ruleta
+- La bienvenida muestra la frase exacta «¿Recuerda que te amo mucho, sí?» entre los mensajes de Noel.
+- Los corazones ♥ sustituyen el símbolo de texto <3 en la portada y pie de página.
+- Cada sorpresa de la ruleta ofrece cinco reacciones opcionales: alegría, tristeza, asombro, calma y amor. Al tocarlas, las caritas animadas dan una respuesta afectuosa diferente. Se restablecen al abrir otra sorpresa.
+- Las reacciones son privadas, no se almacenan y no se envían a ningún servicio. No hay estadísticas ni seguimiento.
+- Se mantienen todas las demás funciones, incluidas las cartas, la historia, las estrellas y los farolillos. El baile permanece desactivado.
+- No se redistribuyen archivos de tipografía. Si deseas **Simple Cakes**, conserva/sube tu propio `SimpleCakes.otf` en la raíz del repositorio; **Fustat** se carga por Google Fonts.

@@ -95,8 +95,28 @@ const surpriseThemes={
  principito:['#6952a8','#e4d6ff','#f8d69f','✧','Si hoy miras el cielo, imagina que te mandé una estrellita con cariño.'],
  noel:['#a45093','#ffdbec','#d9c4fa','♥','Te amo con toda mi alma, mi princesa de cabello rojo. ♡']
 };
+// V16: Reacciones expresivas y privadas en cada sorpresa.
+const emotionNotes={
+ alegria:'¡Esa sonrisa es preciosa, HeyHey! Ojalá encuentres muchos motivos más para sonreír hoy. 💛',
+ tristeza:'Mi princesa, también está bien sentir tristeza. No necesitas ocultarla ni fingir una sonrisa. 💙',
+ asombro:'¡Me encanta que todavía existan cosas capaces de sorprenderte! ✨',
+ calma:'Qué bonito poder encontrar un instante de tranquilidad. Un día a la vez, HeyHey. 💜',
+ amor:'Te amo con toda mi alma, mi niña preciosa. ♡'
+};
+function resetEmotion(){
+ document.querySelectorAll('.emotion-choice').forEach(b=>{b.classList.remove('selected','pop');b.setAttribute('aria-pressed','false')});
+ const reply=document.getElementById('emotionReply');if(reply)reply.textContent='';
+}
+document.querySelectorAll('.emotion-choice').forEach(button=>button.addEventListener('click',()=>{
+ const key=button.dataset.emotion;
+ document.querySelectorAll('.emotion-choice').forEach(b=>{const selected=b===button;b.classList.toggle('selected',selected);b.classList.remove('pop');b.setAttribute('aria-pressed',String(selected))});
+ void button.offsetWidth;button.classList.add('pop');
+ document.getElementById('emotionReply').textContent=emotionNotes[key]||'Gracias por compartir este instante, HeyHey. ♡';
+}));
+
 function paintSurprise(){
  if(!current)return;
+ resetEmotion();
  const t=surpriseThemes[current.section.id]||['#8151aa','#ead6ff','#ffc8e3','✦','Te quiero mucho, HeyHey.'];
  const dialog=$('surpriseDialog'),card=$('surpriseCard');
  card.style.setProperty('--surprise-main',t[0]);card.style.setProperty('--surprise-wash',t[1]);card.style.setProperty('--surprise-accent',t[2]);
@@ -158,7 +178,7 @@ $('spinWheel').addEventListener('click',()=>{
 });
 // V10 · Mensaje de bienvenida distinto en cada visita; no se guardan visitas.
 const welcomeMessages=[
- '¿Recuerdas que te amo mucho, sí?',
+ '¿Recuerda que te amo mucho, sí?',
  '¿Recuerdas que eres increíble y que me haces muy feliz?',
  '¿Recuerdas cuánto me encanta tu cabello rojo, mi princesa?',
  '¿Recuerdas que eres muy bonita, bella y preciosa para mí?',

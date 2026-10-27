@@ -124,3 +124,19 @@ button,.primary-button,.secondary-button,.heyhey-tab,.nav-favs{font-weight:700;l
 .category-title,.letter-tile strong{line-height:1.35}
 .kicker,.eyebrow{font-family:var(--type-readable);font-weight:800;letter-spacing:.14em}
 @media(max-width:760px){body{font-size:15.5px;line-height:1.7}.brand{font-size:21px}.hero h1{font-size:clamp(41px,10vw,56px);line-height:1.2}.section-heading h2,.v9-intro h2{line-height:1.25}button{min-height:42px}}
+
+
+/* V16 · Emociones en la ruleta: caritas originales expresivas, sin seguimiento. */
+.surprise-emotions{margin:18px auto 17px;padding:16px 12px 13px;border:1px solid #ead4f4;border-radius:23px;background:linear-gradient(130deg,#fff9ff,#f6ebff 65%,#fff4fa);max-width:510px}
+.surprise-emotions .emotion-question{font-family:var(--type-readable);font-size:14px;line-height:1.35;font-weight:800;color:#65377c;margin:0 0 12px}
+.emotion-reactions{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.emotion-choice{border:2px solid transparent;min-width:0;border-radius:17px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:10px 4px;font-size:11px;font-weight:800;line-height:1.3;color:#654576;box-shadow:0 2px 9px #6f378011;transition:transform .2s,border-color .2s,background .2s}
+.emotion-choice:hover{transform:translateY(-3px)}.emotion-choice:focus-visible{outline:3px solid #7546a4;outline-offset:2px}.emotion-choice.selected{border-color:#9e65ce;background:#f4e7ff;box-shadow:0 7px 15px #aa69bf23}
+.emotion-face{height:52px;width:52px;display:grid;place-items:center;border-radius:50%;font-size:31px;filter:drop-shadow(0 3px 4px #57397728)}
+.emotion-face.joy{background:#fff0a9}.emotion-face.sad{background:#c8dbff}.emotion-face.wow{background:#ead1ff}.emotion-face.calm{background:#dcf3e7}.emotion-face.love{background:#ffd8e8}
+.emotion-choice.pop .emotion-face{animation:heyReaction .55s cubic-bezier(.2,.8,.15,1.3)}
+.surprise-emotions .emotion-reply{font-size:13px;line-height:1.5;color:#6e407e;min-height:0;margin:11px auto 3px;font-weight:600}
+.emotion-reply:empty{display:none}.emotion-privacy{display:block;color:#987fa7;font-size:10.5px;line-height:1.4;margin-top:10px}
+@keyframes heyReaction{0%,100%{transform:scale(1)}32%{transform:scale(1.22) rotate(-12deg)}65%{transform:scale(.92) rotate(8deg)}}
+@media(max-width:520px){.surprise-emotions{margin:13px auto;padding:12px 7px}.emotion-reactions{gap:4px}.emotion-choice{padding:8px 2px;font-size:10px;border-radius:11px}.emotion-face{height:40px;width:40px;font-size:25px}.surprise-emotions .emotion-question{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.emotion-choice,.emotion-face{animation:none!important;transition:none!important}}
