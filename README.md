@@ -70,3 +70,7 @@ El catálogo de curiosidades incluido cambia según el día, pero no consulta In
 - En las preguntas finales se añade «Borrar mis respuestas guardadas», que borra únicamente el contenido local, no respuestas ya enviadas voluntariamente.
 - No se añadieron analíticas, identificadores, cuentas ni seguimiento de actividad. El baile continúa desactivado.
 - Los deseos y respuestas no se envían automáticamente. El buzón de Google Sheets sigue siendo optativo y requiere configuración aparte.
+
+
+## Corrección v13.1
+Se declaró la referencia a la ruleta y se inicializaron sus variables de giro (`wheel`, `spinning`, `wheelTurns`) antes de registrar los botones. También se actualizó la versión de `script.js` a `13.1` para evitar caché. Sin analíticas ni baile.

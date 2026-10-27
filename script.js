@@ -110,6 +110,9 @@ function showFavorites(){
 }
 document.querySelectorAll('.fav-filter').forEach(button=>button.addEventListener('click',()=>{favoriteFilter=button.dataset.filter;showFavorites()}));
 
+const wheel=$('surpriseWheel');
+let spinning=false;
+let wheelTurns=0;
 sections.forEach((section,i)=>{const tag=document.createElement('span');tag.className='wheel-label';const a=(i+.5)*2*Math.PI/sections.length-Math.PI/2;tag.style.left=(50+36*Math.cos(a))+'%';tag.style.top=(50+36*Math.sin(a))+'%';tag.textContent=section.icon;tag.title=section.name;wheel.append(tag)});
 $('spinWheel').addEventListener('click',()=>{
  if(spinning)return;spinning=true;const button=$('spinWheel');button.disabled=true;
