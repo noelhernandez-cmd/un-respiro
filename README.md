@@ -74,3 +74,19 @@ El catálogo de curiosidades incluido cambia según el día, pero no consulta In
 
 ## Corrección v13.1
 Se declaró la referencia a la ruleta y se inicializaron sus variables de giro (`wheel`, `spinning`, `wheelTurns`) antes de registrar los botones. También se actualizó la versión de `script.js` a `13.1` para evitar caché. Sin analíticas ni baile.
+
+
+## Versión 14: ruleta y ventanas sorpresa
+- La ruleta permanece en pantalla; ya no desplaza a una sección de resultados grande.
+- Cada resultado aparece en una ventana con icono, contenido original, una reflexión breve, guardar favorito, repetir sorpresa y botón X para cerrar.
+- Paleta multicolor armónica con la identidad violeta de HeyHey.
+- En el teléfono, el cuadro ocupa el ancho disponible y se adapta a pantallas pequeñas.
+- Sin analíticas, sin reproducción de música y sin actividades de baile.
+
+
+## Versión 15 · Tipografías para HeyHey
+- **Fustat**: tipografía legible para textos, botones y navegación; se carga desde Google Fonts.
+- **Simple Cakes**: títulos y dedicatorias; **sube tú el archivo original `SimpleCakes.otf` a la raíz del repositorio** junto a `index.html` para activarla. No se redistribuye el archivo de fuente en este paquete.
+- En caso de no subir Simple Cakes, se utiliza una tipografía de respaldo elegante sin romper el diseño.
+- Se mantiene el contenido y la interacción de V14, incluida la ruleta emergente, y siguen desactivados el baile y las estadísticas.
+- Actualiza `index.html` y `styles.css` desde este paquete. Puedes subir todos los archivos del ZIP si prefieres reemplazar todo.

@@ -77,3 +77,50 @@ body{background:var(--paper)}.ambient-one{background:#d9b8ec}.ambient-two{backgr
 @media(max-width:760px){.hero{padding-top:27px;gap:19px}.hero-illustration{height:255px;max-width:340px}.more-rincones>summary{padding:21px}.more-rincones-inner{padding:0 12px 16px}.v9-world{padding:23px 13px}.wish-actions .primary-button{min-height:48px}.letter-tile{min-height:130px}.tap-star{min-width:48px;min-height:48px}.nav{gap:8px}.nav-actions{gap:8px}.brand{font-size:clamp(17px,5vw,23px)}.daily-actions{gap:10px}.daily-actions button{min-height:48px}.favorites-dialog{padding:20px 16px}.more-rincones-inner .breathing{padding:28px 18px}}
 @media(max-width:420px){.hero h1{font-size:clamp(38px,11vw,46px)}.hero-illustration{height:240px}.nav-favs{gap:3px}.secret-heart{width:40px;height:40px;min-width:40px}.wheel-shell{max-width:300px;margin-inline:auto}.letter-grid{grid-template-columns:1fr}.more-rincones>summary small{min-width:100%}.feedback-actions>button{max-width:100%}}
 @media(prefers-reduced-motion:reduce){.more-arrow,.secret-heart,.letter-tile,.tap-star{transition:none!important}.tap-star{animation:none!important}}
+
+/* V14 — Resultados emergentes con más color y menos scroll */
+.surprise-dialog{padding:0;border:0;background:transparent;color:#38254a;max-width:min(610px,calc(100vw - 28px));width:100%;max-height:min(92dvh,850px);overflow-y:auto;border-radius:30px;box-shadow:0 28px 90px #2c144b65;overscroll-behavior:contain}
+.surprise-dialog::backdrop{background:#28133dbb;backdrop-filter:blur(7px)}
+.surprise-dialog-card{--surprise-main:#8151aa;--surprise-wash:#ead6ff;--surprise-accent:#ffc8e3;background:#fffbff;position:relative;overflow:hidden}
+.surprise-close{position:absolute;z-index:4;top:13px;right:13px;background:#fffdf3e8;color:#63426f;border:1px solid #ffffffaa;width:42px;height:42px;border-radius:50%;font-size:29px;line-height:1;box-shadow:0 3px 12px #30143820}
+.surprise-close:hover{background:white;transform:scale(1.06)}
+.surprise-art{height:172px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 48% 125%,#fffafa 0%,var(--surprise-wash) 43%,var(--surprise-main) 160%)}
+.surprise-art-glow{position:absolute;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,#ffffffbd,#ffffff10 65%,transparent 75%);filter:blur(6px)}
+.surprise-art-icon{font-size:76px;line-height:1;position:relative;z-index:2;filter:drop-shadow(0 5px 9px #61347935);animation:heyFloat 3s ease-in-out infinite}
+.surprise-art-spark{position:absolute;color:var(--surprise-main);font-size:26px;opacity:.6}.surprise-art-spark.one{left:18%;top:28%}.surprise-art-spark.two{right:22%;top:17%;color:#d46d9c}.surprise-art-spark.three{right:18%;bottom:16%}
+.surprise-body{padding:28px 36px 32px;text-align:center}.surprise-chip{display:inline-flex;border-radius:999px;background:var(--surprise-wash);color:#634474;padding:7px 17px;font-size:12px;font-weight:700}
+.surprise-body h2{font:400 clamp(31px,6vw,45px)/1.16 Fraunces,Georgia,serif;margin:15px 0;color:#352145}
+.surprise-body p{font-size:15px;line-height:1.7;margin:10px auto;max-width:485px;color:#675572}.surprise-body .surprise-extra{color:#86569b;font-size:14px}
+.surprise-body .surprise-reflection{padding:13px 17px;margin:17px auto;background:linear-gradient(100deg,var(--surprise-wash),#fff9fc);border-left:3px solid var(--surprise-main);border-radius:13px;color:#54376b;font-style:italic}
+.surprise-signature{display:block;color:#9258a5;font-size:12px;margin:16px 0}
+.surprise-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.surprise-actions button{min-height:45px}
+.roulette-layout{background:linear-gradient(145deg,#fff9ff,#f9ecff 57%,#fff4fa);border:1px solid #e9d3f3;border-radius:28px;padding:28px 22px;box-shadow:0 15px 35px #8c55aa12}
+.surprise-wheel{box-shadow:0 0 0 8px #fff9fe,0 0 0 12px #dcbee9,0 15px 30px #8d4dac30!important;filter:saturate(1.25)}
+.wheel-label{color:#fff!important;text-shadow:0 1px 4px #512f63bd;font-size:23px!important}
+.wheel-hub{background:linear-gradient(145deg,#fff,#f5ceec)!important;color:#8a41a9!important;box-shadow:0 3px 14px #4d236742}
+.wheel-side h3{color:#643083}.wheel-spin-button{background:linear-gradient(110deg,#8142a7,#b75b9e)!important;border:0!important;box-shadow:0 5px 17px #8a46ae45}
+@keyframes heyFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-7px) rotate(6deg)}}
+@media(max-width:640px){.surprise-dialog{max-width:calc(100vw - 20px);border-radius:22px}.surprise-art{height:126px}.surprise-art-icon{font-size:55px}.surprise-body{padding:18px 18px 24px}.surprise-body p{font-size:14px;line-height:1.58}.surprise-body h2{font-size:30px}.roulette-layout{padding:20px 12px}.surprise-actions button{flex:1}}
+@media(prefers-reduced-motion:reduce){.surprise-art-icon{animation:none}}
+
+.surprise-wheel{background:conic-gradient(from 0deg,#9c5ac5 0 30deg,#ea87ad 30deg 60deg,#84b9ce 60deg 90deg,#dfae6f 90deg 120deg,#a48de6 120deg 150deg,#82b9a6 150deg 180deg,#d78cc7 180deg 210deg,#f3aa80 210deg 240deg,#6ea7cf 240deg 270deg,#bb88d3 270deg 300deg,#d88ca1 300deg 330deg,#8a77c8 330deg 360deg)!important}
+
+
+/* V15 · Identidad tipográfica amable para HeyHey.
+ * Fustat: cuerpos, botones y navegación. Simple Cakes: titulares y dedicatorias.
+ * SimpleCakes.otf debe subirse por separado a la raíz (el ZIP no redistribuye fuentes).
+ */
+@font-face{font-family:'Simple Cakes';src:url('./SimpleCakes.otf') format('opentype');font-style:normal;font-weight:400;font-display:swap}
+:root{--type-readable:'Fustat','DM Sans',system-ui,sans-serif;--type-romantic:'Simple Cakes','Fraunces',Georgia,serif}
+html,body,button,input,textarea,select{font-family:var(--type-readable)}
+body{font-size:16px;line-height:1.7;letter-spacing:.002em}
+.brand,.hero h1,h1,h2,h3,.category-title,.letter-tile strong,.favorite-world-card h3{font-family:var(--type-romantic)}
+/* Mantener la lectura de cartas y el texto largo con buena legibilidad. */
+.story-prose,.story-prose p,.open-letter-body,.open-letter-body p,.letter p,.love-copy p,.side-card p,.star-message p,.daily-fact p,.wheel-modal p,.feedback p{font-family:var(--type-readable)}
+.hero h1,.universe-page-heading h1{font-size:clamp(43px,5.7vw,78px);line-height:1.18;letter-spacing:-.015em}
+.section-heading h2,.v9-intro h2,.story-header h2,.favorite-worlds-heading h2,.letter h2,.feedback h2{line-height:1.22;letter-spacing:-.012em}
+.brand{font-size:clamp(22px,2.1vw,29px);letter-spacing:0}
+button,.primary-button,.secondary-button,.heyhey-tab,.nav-favs{font-weight:700;letter-spacing:.005em}
+.category-title,.letter-tile strong{line-height:1.35}
+.kicker,.eyebrow{font-family:var(--type-readable);font-weight:800;letter-spacing:.14em}
+@media(max-width:760px){body{font-size:15.5px;line-height:1.7}.brand{font-size:21px}.hero h1{font-size:clamp(41px,10vw,56px);line-height:1.2}.section-heading h2,.v9-intro h2{line-height:1.25}button{min-height:42px}}

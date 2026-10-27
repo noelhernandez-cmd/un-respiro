@@ -81,9 +81,38 @@ function saveFavorites(){try{localStorage.setItem(storeKey,JSON.stringify(favori
 function toast(message){const el=$('toast');el.textContent=message;el.classList.add('visible');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.classList.remove('visible'),2200)}
 function pool(){return active==='all'?all:all.filter(x=>x.section.id===active)}
 function next(random=false){let options=pool();if(!options.length)return;let possible=options.filter(x=>!current||x.key!==current.key);if(!possible.length)possible=options;current=possible[random?Math.floor(Math.random()*possible.length):0];renderCard()}
-function renderCard(){if(!current)return;$('experienceKicker').textContent=active==='all'?'UN POQUITO DE TODO':current.section.name.toUpperCase();$('contentPill').textContent=current.section.label;$('cardSymbol').textContent=current.section.icon;$('cardTitle').textContent=current.title;$('cardText').textContent=current.text;$('cardExtra').textContent=current.extra;$('cardExtra').hidden=!current.extra;$('cardIndex').textContent='Un instante para disfrutar';const liked=favorites.includes(current.key);$('heartButton').textContent=liked?'♥':'♡';$('heartButton').classList.toggle('liked',liked);$('heartButton').setAttribute('aria-pressed',String(liked));$('heartButton').setAttribute('aria-label',liked?'Quitar de favoritos':'Guardar en favoritos')}
-function choose(id){active=id;const options=pool();current=options[Math.floor(Math.random()*options.length)];document.querySelectorAll('.category').forEach(b=>{const selected=b.dataset.section===id;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected))});renderCard();$('experience').scrollIntoView({behavior:'smooth',block:'start'})}
-function surprise(){active='all';document.querySelectorAll('.category').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});next(true);$('experience').scrollIntoView({behavior:'smooth',block:'start'})}
+const surpriseThemes={
+ curiosidades:['#7c58bc','#e3d4ff','#b9edfc','✦','Hoy descubrimos algo nuevo. Y mañana el mundo todavía tendrá más cosas interesantes por contarnos.'],
+ amor:['#b94d9d','#ffe2f3','#f6add7','♡','Que esta sorpresa te recuerde lo bonita que es tu manera de querer y sentir.'],
+ inspiracion:['#7f57ca','#eee1ff','#ffccaa','☼','Un paso pequeño también es avanzar, mi princesa.'],
+ calma:['#527caf','#def1fb','#b4ddfa','☕','Este momento es solamente tuyo: sin prisa y sin pendientes.'],
+ historias:['#8061bf','#efe0ff','#eac2b8','❦','Hay historias pequeñitas que se quedan viviendo con nosotros.'],
+ sonrisas:['#ba668d','#ffdee7','#ffbd85','☺','Ojalá esta pequeña sorpresa te robe una sonrisita, HeyHey.'],
+ valentia:['#9760b8','#ffe5f0','#ffc783','☀','Como los farolillos de tu cuento favorito, tus sueños merecen un poquito de luz.'],
+ origen:['#478f9f','#d3f6f3','#fbe09c','🐓','Nunca olvidaré al gallito Hei Hei ni la historia de tu apodo.'],
+ luna:['#8065ce','#e4e0ff','#ffc2e0','♫','Siempre que escucho Princesa me acuerdo de ti.'],
+ sentir:['#aa648e','#f6deee','#d9b8df','❀','Los libros nos dejan emociones y nuevas formas de mirar el mundo.'],
+ principito:['#6952a8','#e4d6ff','#f8d69f','✧','Si hoy miras el cielo, imagina que te mandé una estrellita con cariño.'],
+ noel:['#a45093','#ffdbec','#d9c4fa','♥','Te amo con toda mi alma, mi princesa de cabello rojo. ♡']
+};
+function paintSurprise(){
+ if(!current)return;
+ const t=surpriseThemes[current.section.id]||['#8151aa','#ead6ff','#ffc8e3','✦','Te quiero mucho, HeyHey.'];
+ const dialog=$('surpriseDialog'),card=$('surpriseCard');
+ card.style.setProperty('--surprise-main',t[0]);card.style.setProperty('--surprise-wash',t[1]);card.style.setProperty('--surprise-accent',t[2]);
+ $('surpriseIcon').textContent=current.section.icon||t[3];
+ $('surpriseCategory').textContent=current.section.label;
+ $('surpriseTitle').textContent=current.title;
+ $('surpriseText').textContent=current.text;
+ $('surpriseExtra').textContent=current.extra||'';
+ $('surpriseExtra').hidden=!current.extra;
+ $('surpriseReflection').textContent=t[4];
+ $('surpriseSave').textContent=favorites.includes(current.key)?'♥ Guardado':'♡ Guardar';
+ if(!dialog.open)dialog.showModal();
+}
+function renderCard(){paintSurprise()}
+function choose(id){active=id;const options=pool();current=options[Math.floor(Math.random()*options.length)];renderCard()}
+function surprise(){active='all';next(false)}
 function toggleFavorite(){if(!current)return;if(favorites.includes(current.key)){favorites=favorites.filter(k=>k!==current.key);toast('Quitado de favoritos')}else{favorites.unshift(current.key);toast('Guardado para volver a leer ♡')}saveFavorites();renderCard()}
 let favoriteFilter='frases';
 const memoryStore='heyhey-recuerdos-favoritos-v13';
@@ -124,7 +153,7 @@ $('spinWheel').addEventListener('click',()=>{
  wheelTurns+=1440+delta;
  wheel.style.transform=`rotate(${wheelTurns}deg)`;
  $('wheelResult').textContent='La magia está eligiendo… ✦';
- const finish=()=>{if(!spinning)return;spinning=false;button.disabled=false;const section=sections[selected];$('wheelResult').textContent='¡Te tocó «'+section.name+'»! ♡';choose(section.id);$('experience').scrollIntoView({behavior:'smooth',block:'start'});};
+ const finish=()=>{if(!spinning)return;spinning=false;button.disabled=false;const section=sections[selected];$('wheelResult').textContent='¡Te tocó «'+section.name+'»! ♡';choose(section.id);};
  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){finish()}else{setTimeout(finish,4800)}
 });
 // V10 · Mensaje de bienvenida distinto en cada visita; no se guardan visitas.
@@ -143,10 +172,22 @@ $('welcomeMessage').textContent=welcomeMessages[Math.floor(Math.random()*welcome
 $('enterHeyHey').addEventListener('click',()=>welcome.close());
 // Apertura en cada visita, incluidas las recargas, sin identificación ni estadísticas.
 try{welcome.showModal()}catch(e){}
-$('year').textContent=new Date().getFullYear();$('surpriseButton').addEventListener('click',surprise);$('closingSurprise').addEventListener('click',surprise);$('exploreButton').addEventListener('click',()=>$('explore').scrollIntoView({behavior:'smooth'}));$('homeButton').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));$('backButton').addEventListener('click',()=>{$('explore').scrollIntoView({behavior:'smooth'});active='all'});$('nextButton').addEventListener('click',()=>next(true));$('heartButton').addEventListener('click',toggleFavorite);$('copyButton').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(current.title+'\n\n'+current.text);toast('Copiado al portapapeles')}catch(e){toast('No fue posible copiar automáticamente')}});$('favoritesButton').addEventListener('click',showFavorites);$('footerFavorites').addEventListener('click',showFavorites);$('closeFavorites').addEventListener('click',()=>$('favoritesDialog').close());$('favoritesDialog').addEventListener('click',e=>{if(e.target===$('favoritesDialog'))$('favoritesDialog').close()});
+$('year').textContent=new Date().getFullYear();
+$('surpriseButton').addEventListener('click',()=>{$('explore').scrollIntoView({behavior:'smooth'})});
+$('closingSurprise').addEventListener('click',()=>{$('explore').scrollIntoView({behavior:'smooth'})});
+$('exploreButton').addEventListener('click',()=>$('explore').scrollIntoView({behavior:'smooth'}));
+$('homeButton').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+$('surpriseClose').addEventListener('click',()=>$('surpriseDialog').close());
+$('surpriseDialog').addEventListener('click',e=>{if(e.target===$('surpriseDialog'))e.target.close()});
+$('surpriseSave').addEventListener('click',toggleFavorite);
+$('surpriseAgain').addEventListener('click',()=>{const options=pool();const previous=current?.key;const other=options.filter(o=>o.key!==previous);current=(other.length?other:options)[Math.floor(Math.random()*(other.length||options.length))];paintSurprise()});
+$('favoritesButton').addEventListener('click',showFavorites);
+$('footerFavorites').addEventListener('click',showFavorites);
+$('closeFavorites').addEventListener('click',()=>$('favoritesDialog').close());
+$('favoritesDialog').addEventListener('click',e=>{if(e.target===$('favoritesDialog'))$('favoritesDialog').close()});
 function stopBreathing(completed=false){clearInterval(breathInterval);clearTimeout(breathTimeout);breathInterval=null;breathTimeout=null;$('breathCircle').classList.remove('expand');$('breathLabel').textContent='inhala calma';$('breathSub').textContent='a tu propio ritmo';$('breathButton').hidden=false;$('stopBreathButton').hidden=true;$('breathStatus').textContent=completed?'Qué bien regalarte estos dos minutos ♡':'Cuando quieras, comenzamos.'}
 function startBreathing(){if(breathInterval)return;$('breathButton').hidden=true;$('stopBreathButton').hidden=false;const started=Date.now();function tick(){const elapsed=Date.now()-started;if(elapsed>=120000){stopBreathing(true);return}const part=elapsed%10000;const inhale=part<4000;const hold=part>=4000&&part<6000;$('breathCircle').classList.toggle('expand',inhale||hold);$('breathLabel').textContent=inhale?'inhala':hold?'sostén':'exhala';$('breathSub').textContent=inhale?'suavemente':hold?'sin esfuerzo':'con tranquilidad';$('breathStatus').textContent='Pausa guiada · '+Math.max(0,Math.ceil((120000-elapsed)/1000))+' s restantes'}tick();breathInterval=setInterval(tick,150);breathTimeout=setTimeout(()=>stopBreathing(true),120100)}
-$('breathButton').addEventListener('click',startBreathing);$('stopBreathButton').addEventListener('click',()=>stopBreathing(false));document.addEventListener('visibilitychange',()=>{if(document.hidden&&breathInterval)stopBreathing(false)});current=all[0];renderCard();saveFavorites();
+$('breathButton').addEventListener('click',startBreathing);$('stopBreathButton').addEventListener('click',()=>stopBreathing(false));document.addEventListener('visibilitychange',()=>{if(document.hidden&&breathInterval)stopBreathing(false)});current=all[0];saveFavorites();
 
 
 const feedbackKey='para-heyhey-feedback-v1';
