@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5effc"><meta name="description" content="Para HeyHey, un rincón de calma, amor, curiosidad y pequeñas formas de crecer. Con mucho amor de Noel HM.">
 <title>Para HeyHey &lt;3 · Con mucho amor de Noel HM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400,20,1;9..144,600,20,1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
@@ -45,11 +45,30 @@
 <p>Tal vez las novelas empiezan con “érase una vez” porque hablan de momentos que marcan un antes y un después. Y conocerte, sin duda, fue uno de ellos.</p><p class="story-sign">Con mucho amor, Noel HM ♡</p></div></details>
 <p class="story-footnote">Un recuerdo de nuestros primeros pasos. Escrita con cariño, para volver a ella cuando quieras.</p>
 </section>
+
+<!-- EXPERIENCIAS V9: un cielo, cartas y farolillos -->
+<section class="v9-world" id="cielo" aria-labelledby="skyTitle">
+ <div class="v9-intro"><span class="kicker">INSPIRADO EN EL PRINCIPITO ✧</span><h2 id="skyTitle">Nuestro cielo de estrellas</h2><p>HeyHey, hay palabras que quisiera dejarte escondidas entre las estrellas. Toca cualquiera y encuentra un pedacito de mi cariño.</p></div>
+ <div class="star-sky" id="starSky" aria-label="Cielo interactivo con nueve estrellas que contienen mensajes"><span class="sky-moon" aria-hidden="true">☾</span><span class="sky-hint">✧ Elige una estrella ✧</span></div>
+ <div class="star-message" id="starMessage" role="status" aria-live="polite"><span class="star-message-symbol">✦</span><p>Hay nueve pequeños mensajes esperándote en este cielo.</p></div>
+</section>
+<section class="v9-world v9-letters" id="cartas" aria-labelledby="lettersTitle">
+ <div class="v9-intro"><span class="kicker">DE NOEL, PARA CADA VERSIÓN DE TI ♡</span><h2 id="lettersTitle">Abre cuando…</h2><p>No tienes que sentirte de una forma específica. Si alguna carta te llama, aquí está para ti, sin prisa.</p></div>
+ <div class="letter-grid" id="letterGrid"></div>
+ <dialog id="openLetterDialog" class="open-letter-dialog" aria-labelledby="openLetterTitle"><div class="open-letter-paper"><button type="button" id="closeLetter" class="letter-close" aria-label="Cerrar carta">×</button><span class="kicker">UNA CARTITA DE NOEL ♡</span><h3 id="openLetterTitle"></h3><div id="openLetterBody" class="open-letter-body"></div><p class="letter-end">Con mucho amor, Noel HM ♡</p></div></dialog>
+</section>
+<section class="v9-world lantern-section" id="deseos" aria-labelledby="wishTitle">
+ <div class="v9-intro"><span class="kicker">UN GUIÑO A ENREDADOS ✨</span><h2 id="wishTitle">Farolillos de sueños</h2><p>Para esos sueños que llevas en el corazón. Escribe uno y mira cómo su luz sube al cielo. No tienes que cumplirlo hoy, ni mañana.</p></div>
+ <form id="wishForm" class="wish-form"><label for="wishText">Un sueño, un deseo o algo bonito que esperas</label><textarea id="wishText" maxlength="180" rows="3" placeholder="Me gustaría…" required></textarea><div class="wish-actions"><button class="primary-button" type="submit">Soltar mi farolillo ✨</button><span class="wish-private">Solo se guarda en este navegador. Nadie recibe tu deseo.</span></div></form>
+ <div class="lantern-stage" id="lanternStage" aria-label="Cielo de farolillos animados"><span class="stage-stars" aria-hidden="true">✦ ⋆ ˚ ✧ ⋆ ✦</span><div class="lantern-flight" id="lanternFlight" aria-hidden="true"><div class="lantern-light">♡</div></div><p>Que cada sueño encuentre su tiempo ♡</p></div>
+ <div class="wish-saved"><div class="saved-heading"><h3>Mis lucecitas guardadas</h3><button type="button" class="text-button" id="clearWishes" hidden>Borrar mis deseos</button></div><ul id="wishList" class="wish-list"></ul><p id="wishStatus" class="wish-status" role="status" aria-live="polite"></p></div>
+</section>
+
 <section class="feedback" id="feedback"><span class="kicker">ANTES DE IRTE, SI TE NACE</span><h2>¿Cómo se sintió este ratito, HeyHey?</h2><p>Si quieres, cuéntame cómo estás. Puedes guardar tus respuestas solo para ti o elegir enviármelas. No tienes que responder nada que no quieras compartir.</p><form id="feedbackForm"><fieldset><legend>¿Cómo te sientes ahora?</legend><div class="choice-row"><label><input type="radio" name="mood" value="Un poquito mejor"> Un poquito mejor</label><label><input type="radio" name="mood" value="Igual que antes"> Igual que antes</label><label><input type="radio" name="mood" value="Todavía me cuesta"> Todavía me cuesta</label><label><input type="radio" name="mood" value="Prefiero no decirlo"> Prefiero no decirlo</label></div></fieldset><fieldset><legend>¿Este espacio te acompañó de alguna manera?</legend><div class="choice-row"><label><input type="radio" name="help" value="Sí, me hizo bien"> Sí, me hizo bien</label><label><input type="radio" name="help" value="Un poquito"> Un poquito</label><label><input type="radio" name="help" value="Hoy no tanto"> Hoy no tanto</label></div></fieldset><label class="feedback-note-label" for="feedbackNote">¿Qué te gustaría encontrar aquí la próxima vez? (opcional)</label><textarea id="feedbackNote" rows="3" maxlength="500" placeholder="Un mensaje, una idea, otra canción…"></textarea><div class="feedback-actions"><button class="secondary-button" type="submit">Guardar solo para mí ♡</button><button class="primary-button" type="button" id="sendFeedback">Enviar mis respuestas a Noel ♡</button><button class="secondary-button" type="button" id="copyFeedback">Copiar para compartir</button></div><p class="feedback-privacy">Si decides enviar, Noel podrá leer lo que compartas en una hoja privada. Guardar solo para mí no envía nada. Sin cuentas ni nombres.</p><p class="feedback-status" id="feedbackStatus" role="status" aria-live="polite"></p></form></section>
 <section class="closing"><span>♥</span><h2>Un día a la vez, HeyHey.</h2><p>Aquí estoy para ti. Te amo con toda mi alma. Con mucho amor de Noel HM ♡</p><button class="secondary-button" id="closingSurprise">Una sorpresa más para ti ♡</button></section></main>
 <footer class="footer shell"><span>♥ Para HeyHey <3</span><span>Con mucho amor de Noel HM · <span id="year"></span></span><button id="footerFavorites">♡ Mis favoritos</button></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <dialog id="favoritesDialog" class="favorites-dialog"><div class="dialog-head"><div><span class="kicker">LO QUE TE HIZO SENTIR BIEN</span><h2>Tus favoritos ♡</h2></div><button id="closeFavorites" class="close-button" aria-label="Cerrar">×</button></div><p class="favorites-hint">Se guardan en este navegador, solo para ti.</p><div id="favoritesList" class="favorites-list"></div></dialog>
 <script src="config.js?v=7" defer></script>
-<script src="script.js?v=8" defer></script>
+<script src="script.js?v=9" defer></script>
 </body></html>

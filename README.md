@@ -27,3 +27,12 @@ La versión actual **no envía automáticamente respuestas** hasta conectar tu p
 
 ## Versión 8 — sus historias favoritas
 Se incorporó un homenaje visible a **Soy Luna** y la canción **Princesa** de Matteo, además de otro a **Boulevard** de Flor M. Salvador, con más tarjetas originales y sin reproducir letras ni capítulos. El baile sigue desactivado.
+
+
+## Versión 9 — Tres nuevas experiencias
+- **Nuestro cielo de estrellas**: nueve estrellas tocables con mensajes originales de Noel.
+- **Abre cuando…**: seis cartas para distintos momentos, en un cuadro accesible.
+- **Farolillos de sueños**: un deseo se anima hacia el cielo y se guarda en el almacenamiento local del navegador (máximo 20, se pueden borrar). No se transmite ni sincroniza entre dispositivos.
+- Se conservan todas las secciones anteriores, incluida la carta Nuestra historia y el formulario de opinión. **El baile permanece desactivado** como actividad.
+- El buzón de respuestas sigue pendiente de configurar mediante `config.js` y Google Apps Script; no se activa con esta actualización.
+- Para publicar, reemplaza los archivos en GitHub conservando la imagen `heyhey-cuento.jpg` en la raíz. `apps-script.gs` sirve solo como referencia de configuración.

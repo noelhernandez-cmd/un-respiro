@@ -119,3 +119,37 @@ $('princeButton').addEventListener('click',()=>choose('principito'));
 
 // Atajos desde los homenajes especiales a las secciones interactivas.
 document.querySelectorAll('[data-world]').forEach(button=>button.addEventListener('click',()=>{const category=button.dataset.world;const match=document.querySelector(`[data-section="${category}"]`);if(match){match.click();document.getElementById('experience')?.scrollIntoView({behavior:'smooth'});}else{const item=sections.find(x=>x.id===category);if(item)choose(category);}}));
+
+
+// V9: Estrellas, cartas y farolillos. No hay envío remoto de datos personales.
+(() => {
+ const starNotes=[
+ 'HeyHey, una de mis cosas favoritas es saber que existes en mi vida. Te amo con toda mi alma. ♡',
+ 'Tu cabello rojo me encanta, pero tu manera de ser es lo que hace que quiera conocerte más cada día.',
+ 'No hace falta que hoy puedas con todo. Estoy orgulloso de ti, incluso cuando decides descansar.',
+ 'Eres mi princesa, siempre tan bella y preciosa. Y sobre todo: tan tú.',
+ 'Me encanta escucharte hablar de tus libros, tus canciones y esos mundos que tanto te emocionan.',
+ 'Todavía recuerdo nuestras primeras conversaciones. No sabía cuántos momentos bonitos vendrían después.',
+ 'Si una estrella pudiera abrazar, te enviaría un cielo completo. — Noel HM',
+ 'Mi niña hermosa: tienes derecho a cambiar de idea, empezar de nuevo y avanzar a tu propio ritmo.',
+ 'Un día a la vez, HeyHey. Yo quiero caminar contigo, no pedirte que corras. ♡'
+ ];
+ const coords=[[12,22],[29,56],[44,27],[61,60],[78,24],[88,66],[19,82],[52,83],[69,15]];
+ const sky=document.getElementById('starSky'),message=document.getElementById('starMessage');
+ if(sky&&message)coords.forEach(([x,y],i)=>{const button=document.createElement('button');button.type='button';button.className='tap-star';button.textContent=i%3===0?'✧':'✦';button.style.left=x+'%';button.style.top=y+'%';button.setAttribute('aria-label','Descubrir mensaje de la estrella '+(i+1));button.addEventListener('click',()=>{button.classList.add('visited');message.replaceChildren();const icon=document.createElement('span');icon.className='star-message-symbol';icon.textContent='✦';const p=document.createElement('p');p.textContent=starNotes[i];message.append(icon,p)});sky.append(button)});
+ const letters=[
+ {title:'Necesites un abrazo',symbol:'♡',body:['HeyHey, si hoy se siente pesado, quiero dejarte aquí un abrazo hecho de palabras. No tienes que contarme nada si no te nace.','Me gustaría que pudieras verte un instante con mis ojos: preciosa, valiosa, merecedora de cariño, incluso en días difíciles.','Te amo con toda mi alma. Aquí estoy para ti.']},
+ {title:'Dudes de ti',symbol:'✧',body:['Mi princesa, no necesitas demostrarme que eres suficiente. Para mí lo eres desde antes de cualquier logro.','Admiro tu sensibilidad, tu creatividad, todo lo que te apasiona, y la forma tan auténtica en que vives las cosas.','Un paso pequeño también cuenta. Un día a la vez, HeyHey.']},
+ {title:'Me extrañes',symbol:'✉',body:['Tal vez ahora no estemos en el mismo lugar, pero hay recuerdos que nos acercan.','Pienso en nuestras primeras conversaciones, en tu risa, en lo mucho que me gusta escucharte contar lo que amas.','Si te hace bien, imagina este mensaje como un abrazo largo. Te amo, HeyHey.']},
+ {title:'Estés feliz',symbol:'☀',body:['¡Mi niña hermosa! Me encanta imaginarte sonriendo. No tienes que guardar la alegría para una ocasión especial.','Ojalá disfrutes mucho este momento. Me hace feliz saber que hay cosas que te emocionan y que todavía nos esperan muchas historias.','Celebra lo bonito, princesa. Te amo.']},
+ {title:'Necesites valentía',symbol:'✦',body:['Pienso en Rapunzel mirando hacia fuera de su torre y me acuerdo de todas esas veces en las que descubrir algo nuevo da miedo.','No tienes que dar el salto más grande. A veces basta con abrir una ventanita y respirar. Tú decides tu ritmo.','Confío en ti, HeyHey. Y si necesitas compañía, cuenta conmigo.']},
+ {title:'Quieras recordar lo nuestro',symbol:'❀',body:['Érase una vez alguien que no sabía cuánto cambiaría su vida una conversación en una academia de baile.','Guardo con mucho cariño esos primeros encuentros y todas las pequeñas cosas que fui descubriendo de ti.','Gracias por dejarme conocerte. Me sigue emocionando escribir nuestra historia contigo. — Noel HM']}
+ ];
+ const grid=document.getElementById('letterGrid'),dialog=document.getElementById('openLetterDialog');
+ if(grid&&dialog){const title=document.getElementById('openLetterTitle'),body=document.getElementById('openLetterBody');letters.forEach(letter=>{const b=document.createElement('button');b.type='button';b.className='letter-tile';const icon=document.createElement('span');icon.className='letter-tile-icon';icon.textContent=letter.symbol;const heading=document.createElement('strong');heading.textContent='Abre cuando… '+letter.title.toLowerCase();const hint=document.createElement('small');hint.textContent='Leer mi cartita ↗';b.append(icon,heading,hint);b.addEventListener('click',()=>{title.textContent='Cuando '+letter.title.toLowerCase()+'…';body.replaceChildren();letter.body.forEach(t=>{const p=document.createElement('p');p.textContent=t;body.append(p)});dialog.showModal()});grid.append(b)});document.getElementById('closeLetter').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()})}
+ const form=document.getElementById('wishForm'),wishList=document.getElementById('wishList'),wishStatus=document.getElementById('wishStatus'),clear=document.getElementById('clearWishes');const key='para-heyhey-deseos-v9';let wishes=[];
+ try{const parsed=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(parsed))wishes=parsed.filter(x=>typeof x==='string').slice(0,20)}catch(e){}
+ const persist=()=>{try{localStorage.setItem(key,JSON.stringify(wishes));return true}catch(e){return false}};
+ function renderWishes(){wishList.replaceChildren();clear.hidden=!wishes.length;if(!wishes.length){const li=document.createElement('li');li.textContent='Cuando quieras, tu primer deseo puede vivir aquí. ✨';wishList.append(li);return}wishes.forEach((wish,index)=>{const li=document.createElement('li');const txt=document.createElement('span');txt.textContent='✧ '+wish;const remove=document.createElement('button');remove.type='button';remove.textContent='Quitar';remove.setAttribute('aria-label','Eliminar deseo '+(index+1));remove.addEventListener('click',()=>{wishes.splice(index,1);persist();renderWishes()});li.append(txt,remove);wishList.append(li)})}
+ if(form){renderWishes();form.addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('wishText');const wish=input.value.trim();if(!wish){wishStatus.textContent='Escribe un deseo antes de soltar tu farolillo.';return}if(wishes.length>=20){wishStatus.textContent='Tienes 20 lucecitas guardadas. Puedes quitar alguna antes de sumar otra.';return}wishes.unshift(wish.slice(0,180));const stored=persist();renderWishes();input.value='';wishStatus.textContent=stored?'Deseo guardado solamente en este navegador ♡':'Tu farolillo voló, pero este navegador no permitió guardar el deseo.';const flight=document.getElementById('lanternFlight');flight.classList.remove('rising');void flight.offsetWidth;flight.classList.add('rising')});clear.addEventListener('click',()=>{if(!confirm('¿Quieres borrar todos los deseos guardados en este navegador?'))return;wishes=[];persist();renderWishes();wishStatus.textContent='Tus deseos guardados se borraron de este navegador.'})}
+})();
