@@ -36,3 +36,37 @@ Se incorporó un homenaje visible a **Soy Luna** y la canción **Princesa** de M
 - Se conservan todas las secciones anteriores, incluida la carta Nuestra historia y el formulario de opinión. **El baile permanece desactivado** como actividad.
 - El buzón de respuestas sigue pendiente de configurar mediante `config.js` y Google Apps Script; no se activa con esta actualización.
 - Para publicar, reemplaza los archivos en GitHub conservando la imagen `heyhey-cuento.jpg` en la raíz. `apps-script.gs` sirve solo como referencia de configuración.
+
+
+## Versión 10 — Ruleta + bienvenida amorosa
+- La cuadrícula de 12 rincones se reemplazó por una ruleta giratoria. Al girarla, selecciona aleatoriamente una de las 12 categorías existentes y muestra un contenido correspondiente. Conserva favoritos y el botón de otra sorpresa.
+- Se muestra una bienvenida distinta **cada vez que se abre o recarga** la página, con un mensaje romántico y el botón **Siempre ♡**. No se guarda un historial de aperturas.
+- **No hay estadísticas ni analítica ni rastreo de personas o tiempo de uso.**
+- El baile sigue desactivado; no se solicita ninguna actividad física.
+- Se mantienen las estrellas, cartas, farolillos, textos, respiración, dedicatoria y formulario.
+- Para publicar, reemplaza `index.html`, `styles.css` y `script.js` en la raíz; los otros archivos del ZIP se conservan.
+
+
+## Versión 11 · Descubrimiento diario y canciones de Noel
+
+- Una curiosidad nueva por fecha local en una selección editorial de 35 datos; el catálogo rota al agotarse y puede ampliarse desde `script.js`. No extrae noticias en vivo ni se actualiza solo con información externa.
+- Botón «Descubrir otra», favoritos de curiosidades guardados solo en el navegador.
+- Cuatro dedicatorias originales: «Princesa» (Matteo, Soy Luna), «Sin Maquillar», «Lady Zombie» y «The Reason» (Hoobastank). No reproduce música ni letras.
+- No se recopilan estadísticas, no se activa el baile; se conserva la ruleta de la versión 10, la bienvenida y todas las experiencias existentes.
+- Publicar reemplazando los archivos de la raíz del repositorio, conservando `heyhey-cuento.jpg` en la raíz.
+
+
+## Versión 12 — Dos pestañas
+La página ahora tiene **Inicio** (ruleta, datos curiosos diarios, dedicatoria, historia, respiración, preguntas) y **Nuestro universo** (canciones de Noel: Princesa, Sin Maquillar, Lady Zombie y The Reason; cielo de estrellas, cartas y farolillos). Las pestañas cambian de forma instantánea sin recargar la página. No se recopilan estadísticas ni se reactiva el baile.
+
+El catálogo de curiosidades incluido cambia según el día, pero no consulta Internet ni añade datos nuevos automáticamente. Para ampliarlo es necesario actualizar el código en GitHub.
+
+
+## Versión 13 — Sorpresas escondidas y experiencia más ligera
+- La portada da prioridad a la ruleta y al descubrimiento diario; otras secciones se abren en «Más rincones para ti».
+- Corazón discreto: cinco pulsaciones sucesivas revelan una dedicatoria secreta. Planeta de El Principito: símbolo interactivo. Tres estrellas esconden recuerdos de los primeros encuentros.
+- Los secretos pueden guardarse en **Recuerdos**, separadamente de **Frases** y **Curiosidades**. Favoritos almacenados solamente en ese navegador.
+- Mejores áreas táctiles, lectura en celular, transiciones suaves y respeto a la preferencia de movimiento reducido.
+- En las preguntas finales se añade «Borrar mis respuestas guardadas», que borra únicamente el contenido local, no respuestas ya enviadas voluntariamente.
+- No se añadieron analíticas, identificadores, cuentas ni seguimiento de actividad. El baile continúa desactivado.
+- Los deseos y respuestas no se envían automáticamente. El buzón de Google Sheets sigue siendo optativo y requiere configuración aparte.
